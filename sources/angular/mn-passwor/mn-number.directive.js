@@ -1,6 +1,6 @@
 angular
   .module('mn-number')
-  .directive('MnNumber', MnNumberDirective)
+  .directive('mnNumber', MnNumberDirective)
 
 function MnNumberDirective($compile, $parse) {
   return {
