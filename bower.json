@@ -13,6 +13,6 @@
   "homepage": "",
   "dependencies": {
     "angular": "^1.6.1",
-    "mn-number": "^0.0.2"
+    "mn-number": "^0.0.3"
   }
 }
