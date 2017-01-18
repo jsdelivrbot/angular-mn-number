@@ -1,6 +1,5 @@
 {
   "name": "angular-mn-number",
-  "version": "0.0.1",
   "description": "An angular directive to mn-number",
   "main": [
     "dist/angular-mn-number.js",
@@ -13,6 +12,6 @@
   "homepage": "",
   "dependencies": {
     "angular": "^1.6.1",
-    "mn-number": "^0.0.3"
+    "mn-number": "^0.0.5"
   }
 }
