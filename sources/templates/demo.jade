@@ -1,0 +1,57 @@
+html(ng-app='app')
+  meta(name='viewport' content='width=device-width, user-scalable=no')
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css')
+
+  block styles
+    link(rel='stylesheet' href='docs/vendor.css')
+
+body(ng-controller='IndexController as controller')
+  h2 angular-mn-number
+  include github-corner
+
+  .mn-layout-fullscreen.mn-layout-centered
+    .mn-layout-container
+      mn-form.mn-layout-column.mn-layout-sm-row.submitted
+        mn-number.flex(placeholder='number' max='10' min='0' ng-model='controller.number')
+        mn-number.flex(placeholder='another number' ng-model='controller.number2')
+        //- button.mn-button submit
+
+  .docs.mn-layout-container
+    mn-code.sh.
+      npm install --save angular-mn-number
+
+    p And bundle dependencies and main files in <strong>dist/</strong> with your preferred tool.
+
+    h3 usage
+    mn-code.js.
+      // add dependency in you module
+      angular.module('app', [
+        'mn-number'
+      ])
+
+    p And then, in your html, you can use the tag
+
+    mn-code.html.
+      <mn-number placeholder="Amount" ng-model='amount'></mn-number>
+
+    p For more details check <a href="https://github.com/minimalist-components/mn-number">mn-number docs</a>.
+
+
+
+  block scripts
+    script(src='docs/vendor.js')
+    script(src='dist/angular-mn-number.js')
+
+  script.
+    angular.module('app', [
+      'mn-number',
+    ])
+
+    angular
+      .module('app')
+      .controller('IndexController', IndexController);
+
+    function IndexController() {
+      this.number = 10
+    }
+
