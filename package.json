@@ -1,6 +1,6 @@
 {
   "name": "angular-mn-number",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "an angular directive to mn-number",
   "main": "dist/angular-mn-number.js",
   "files": [
@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "angular": "^1.6.1",
-    "mn-number": "^0.0.1"
+    "mn-number": "^0.0.2"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.14.0",
