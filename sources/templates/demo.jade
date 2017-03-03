@@ -11,9 +11,11 @@ body(ng-controller='IndexController as controller')
 
   .mn-layout-fullscreen.mn-layout-centered
     .mn-layout-container
-      mn-form.mn-layout-column.mn-layout-sm-row.submitted
-        mn-number.flex(placeholder='number' max='10' min='0' ng-model='controller.number')
-        mn-number.flex(placeholder='another number' ng-model='controller.number2')
+      mn-form.mn-layout-column.mn-layout-sm-row
+        mn-number.flex(placeholder='integer number' min='0' max='100' required name='test' ng-model='controller.number')
+        mn-number.flex(placeholder='float with precision 3' decimal='3' max='10' min='0' step='0.1' ng-model='controller.number2')
+        mn-number.flex(placeholder='money' currency max='10' min='0' ng-model='controller.number3')
+        mn-number.flex(placeholder='percentage' percentage ng-model='controller.number4')
         //- button.mn-button submit
 
   .docs.mn-layout-container
@@ -52,6 +54,7 @@ body(ng-controller='IndexController as controller')
       .controller('IndexController', IndexController);
 
     function IndexController() {
-      this.number = 10
+      this.number = 10.2
+      this.number2 = 10
     }
 
