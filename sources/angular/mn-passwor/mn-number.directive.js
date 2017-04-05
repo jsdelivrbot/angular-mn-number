@@ -9,18 +9,21 @@ function MnNumberDirective($compile, $parse) {
     require: 'ngModel',
   }
 
-  function link(scope, element, attributes) {
+  function link(scope, element, attributes, ngModel) {
     const dirtyInput = element[0].querySelector('input + input')
     if (dirtyInput) {
       element[0].removeChild(dirtyInput)
     }
+
     const input = element.find('input')
     element[0].value = $parse(attributes.ngModel)(scope)
+
     input.attr('ng-model', attributes.ngModel)
     $compile(input)(scope)
 
-    const event = document.createEvent('HTMLEvents')
-    event.initEvent('change', false, true)
-    element[0].querySelector('input').dispatchEvent(event)
+    ngModel.$formatters.push(() => {
+      console.log('formatters', element[0].value)
+      return element[0].value
+    })
   }
 }

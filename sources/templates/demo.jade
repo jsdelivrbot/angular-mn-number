@@ -6,7 +6,7 @@ html(ng-app='app')
     link(rel='stylesheet' href='docs/vendor.css')
 
 body(ng-controller='IndexController as controller')
-  h2 angular-mn-number
+  h2 angular-mn-number {{ controller.number4 }}
   include github-corner
 
   .mn-layout-fullscreen.mn-layout-centered
@@ -56,5 +56,6 @@ body(ng-controller='IndexController as controller')
     function IndexController() {
       //- this.number = 10.2
       //- this.number2 = 10
+      this.number4 = 10.5
     }
 
