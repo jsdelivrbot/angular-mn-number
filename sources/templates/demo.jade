@@ -6,7 +6,7 @@ html(ng-app='app')
     link(rel='stylesheet' href='docs/vendor.css')
 
 body(ng-controller='IndexController as controller')
-  h2 angular-mn-number
+  h2 angular-mn-number {{ controller.number4 }}
   include github-corner
 
   .mn-layout-fullscreen.mn-layout-centered
@@ -17,6 +17,7 @@ body(ng-controller='IndexController as controller')
         mn-number.flex(placeholder='money' currency max='10' min='0' ng-model='controller.number3')
         mn-number.flex(placeholder='percentage' percentage ng-model='controller.number4')
         //- button.mn-button submit
+        button(type='button' ng-click='controller.show()') show
 
   .docs.mn-layout-container
     mn-code.sh.
@@ -49,12 +50,19 @@ body(ng-controller='IndexController as controller')
       'mn-number',
     ])
 
+    var perc = document.querySelector('mn-number[placeholder="percentage"]')
+
     angular
       .module('app')
       .controller('IndexController', IndexController);
 
     function IndexController() {
-      //- this.number = 0
+      //- this.number = 1
       //- this.number2 = 10
+      this.number4 = 0.1
+
+      this.show = () => {
+        console.log('catch', this.number4)
+      }
     }
 
