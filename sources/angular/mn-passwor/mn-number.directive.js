@@ -32,13 +32,23 @@ function MnNumberDirective($compile, $parse) {
     event.initEvent('change', false, true)
     element[0].querySelector('input').dispatchEvent(event)
 
-    input.on('change', () => {
-      const value = element[0].value
-      ngModel.$modelValue = value
-      // ngModel.$viewValue = value
-      // ngModel.$render()
-      console.log(ngModel.$modelValue)
-    })
+    if (isPercentage) {
+      ngModel.$formatters.push(formatter)
+
+      function formatter(value) {
+        console.log('formatter', value / 100)
+
+        return value / 100
+      }
+    }
+
+    // input.on('change', () => {
+    //   const value = element[0].value
+    //   ngModel.$modelValue = value
+    //   ngModel.$viewValue = value
+    //   ngModel.$render()
+    //   console.log(ngModel.$modelValue)
+    // })
     // console.log(ngModel.$modelValue)
   }
 }
