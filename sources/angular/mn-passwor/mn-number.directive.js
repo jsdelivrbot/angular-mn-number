@@ -9,7 +9,7 @@ function MnNumberDirective($compile, $parse) {
     require: 'ngModel',
   }
 
-  function link(scope, element, attributes, ngModel) {
+  function link(scope, element, attributes) {
     const dirtyInput = element[0].querySelector('input + input')
     if (dirtyInput) {
       element[0].removeChild(dirtyInput)
@@ -33,13 +33,36 @@ function MnNumberDirective($compile, $parse) {
     element[0].querySelector('input').dispatchEvent(event)
 
     if (isPercentage) {
-      ngModel.$formatters.push(formatter)
+      // console.log(attributes.ngModel, scope)
+      Object.defineProperty(scope, attributes.ngModel, {
+        get() {
+          console.log('wow')
+          return element[0].value
+        },
+        set(value) {
+          element[0] = value
+        },
+        configurable: true,
+      })
+      // Object.defineProperty(
+      //   scope,
+      //   attributes.ngModel, //"accessorWrappedMyValue",
+      //   {
+      //       get : function() { return $scope.myValue; },
+      //       set : function(newValue) {
+      //                 $scope.myValue = newValue;
+      //                 $scope.myDerivedValue = $scope.myValue * 2;
+      //             },
+      //       configurable: true
+      //   })
 
-      function formatter(value) {
-        console.log('formatter', value / 100)
+      // ngModel.$formatters.push(formatter)
 
-        return value / 100
-      }
+      // function formatter(value) {
+      //   console.log('formatter', value / 100)
+
+      //   return value / 100
+      // }
     }
 
     // input.on('change', () => {
