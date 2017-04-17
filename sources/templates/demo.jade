@@ -17,7 +17,7 @@ body(ng-controller='IndexController as controller')
         mn-number.flex(placeholder='money' currency max='10' min='0' ng-model='controller.number3')
         mn-number.flex(placeholder='percentage' percentage ng-model='controller.number4')
         //- button.mn-button submit
-        button(type='button' ng-click='controller.show()') show
+        //- button(type='button' ng-click='controller.show()') show
 
   .docs.mn-layout-container
     mn-code.sh.
@@ -59,11 +59,11 @@ body(ng-controller='IndexController as controller')
     function IndexController() {
       //- this.number = 1
       //- this.number2 = 10
-      this.number4 = 0.1
+      //- this.number4 = 0.1
 
-      this.show = () => {
-        //- console.log('modelValue', this.number4)
-        this.number4 = 2
-      }
+      //- this.show = () => {
+      //-   //- console.log('modelValue', this.number4)
+      //-   this.number4 = 2
+      //- }
     }
 
