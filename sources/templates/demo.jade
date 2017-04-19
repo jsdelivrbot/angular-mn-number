@@ -19,6 +19,20 @@ body(ng-controller='IndexController as controller')
         //- button.mn-button submit
         //- button(type='button' ng-click='controller.show()') show
 
+      //- mn-form.mn-layout-column.mn-layout-sm-row
+        .flex.mn-layout-column
+          span Number: {{ controller.number }}
+          mn-number.flex(placeholder='integer number' min='0' max='100' required name='test' ng-model='controller.number')
+        .flex.mn-layout-column
+          span Decimal: {{ controller.number2 }}
+          mn-number.flex(placeholder='float with precision 3' decimal='3' max='10' min='0' step='0.1' ng-model='controller.number2') 
+        .flex.mn-layout-column
+          span Decimal: {{ controller.number3 }}
+          mn-number.flex(placeholder='money' currency max='10' min='0' ng-model='controller.number3')
+        .flex.mn-layout-column
+          span Decimal: {{ controller.number4 }}
+          mn-number.flex(placeholder='percentage' percentage ng-model='controller.number4')
+
   .docs.mn-layout-container
     mn-code.sh.
       npm install --save angular-mn-number

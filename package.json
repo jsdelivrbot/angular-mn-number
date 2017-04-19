@@ -1,6 +1,6 @@
 {
   "name": "angular-mn-number",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "an angular directive to mn-number",
   "main": "dist/angular-mn-number.js",
   "files": [

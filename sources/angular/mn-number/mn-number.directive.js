@@ -29,16 +29,14 @@ function MnNumberDirective($compile, $parse) {
     event.initEvent('change', false, true)
     element[0].querySelector('input').dispatchEvent(event)
 
-    if (isPercentage) {
-      input.on('change', () => {
-        ngModel.$setViewValue(element[0].value)
-      })
+    input.on('change', () => {
+      ngModel.$setViewValue(element[0].value)
+    })
 
-      scope.$watch(attributes.ngModel, (value) => {
-        if (value !== element[0].value) {
-          element[0].value = value
-        }
-      })
-    }
+    scope.$watch(attributes.ngModel, (value) => {
+      if (value !== element[0].value) {
+        element[0].value = value
+      }
+    })
   }
 }
